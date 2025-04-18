@@ -19,12 +19,18 @@ lib64/
 parts/
 sdist/
 var/
+<<<<<<< HEAD
+*.egg-info/
+.installed.cfg
+*.egg
+=======
 wheels/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
+>>>>>>> 67e9a568706a95e6393438f17f6bf47d95622e36
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -48,8 +54,11 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+<<<<<<< HEAD
+=======
 .pytest_cache/
 cover/
+>>>>>>> 67e9a568706a95e6393438f17f6bf47d95622e36
 
 # Translations
 *.mo
@@ -59,7 +68,11 @@ cover/
 *.log
 local_settings.py
 db.sqlite3
+<<<<<<< HEAD
+quiz_app.db
+=======
 db.sqlite3-journal
+>>>>>>> 67e9a568706a95e6393438f17f6bf47d95622e36
 
 # Flask stuff:
 instance/
@@ -72,7 +85,10 @@ instance/
 docs/_build/
 
 # PyBuilder
+<<<<<<< HEAD
+=======
 .pybuilder/
+>>>>>>> 67e9a568706a95e6393438f17f6bf47d95622e36
 target/
 
 # Jupyter Notebook
@@ -83,6 +99,42 @@ profile_default/
 ipython_config.py
 
 # pyenv
+<<<<<<< HEAD
+.python-version
+
+# pipenv
+pipenv.lock
+
+# pytest
+.cache
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# VS Code
+.vscode/
+.idea/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+=======
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:
 # .python-version
@@ -172,3 +224,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+>>>>>>> 67e9a568706a95e6393438f17f6bf47d95622e36
