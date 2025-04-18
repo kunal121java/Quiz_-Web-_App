@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Login</h1>
+            <nav class="space-x-4">
+                <a href="{% url 'home' %}" class="hover:underline">Home</a>
+                <a href="{% url 'register' %}" class="hover:underline">Register</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto flex-grow p-6">
+        <form method="post" class="bg-white rounded-lg shadow p-6 space-y-6 max-w-md mx-auto">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Login</button>
+        </form>
+        <p class="text-center mt-4 text-gray-700">Don't have an account? <a href="{% url 'register' %}" class="text-blue-600 hover:underline">Register here</a>.</p>
+    </main>
+    <footer class="bg-gray-200 text-center p-4 mt-auto">
+        &copy; 2024 Quiz App. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ subject }} Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">{{ subject }} Quiz</h1>
+            <nav>
+                <a href="{% url 'quiz_subjects' %}" class="hover:underline">Back to Subjects</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto flex-grow p-6">
+        <form method="post" class="bg-white rounded-lg shadow p-6 space-y-6">
+            {% csrf_token %}
+            {% for question in questions %}
+                <div class="quiz-question">
+                    <p class="font-semibold mb-2">{{ forloop.counter }}. {{ question.question }}</p>
+                    <div class="quiz-options space-y-2">
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="radio" name="{{ question.id }}" value="1" id="{{ question.id }}_1" class="form-radio text-blue-600" />
+                            <span>{{ question.option1 }}</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="radio" name="{{ question.id }}" value="2" id="{{ question.id }}_2" class="form-radio text-blue-600" />
+                            <span>{{ question.option2 }}</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="radio" name="{{ question.id }}" value="3" id="{{ question.id }}_3" class="form-radio text-blue-600" />
+                            <span>{{ question.option3 }}</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                            <input type="radio" name="{{ question.id }}" value="4" id="{{ question.id }}_4" class="form-radio text-blue-600" />
+                            <span>{{ question.option4 }}</span>
+                        </label>
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Submit Quiz</button>
+        </form>
+    </main>
+    <footer class="bg-gray-200 text-center p-4 mt-auto">
+        &copy; 2024 Quiz App. All rights reserved.
+    </footer>
+</body>
+</html>

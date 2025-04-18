@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Choose Quiz Subject</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Choose a Quiz Subject</h1>
+            <nav class="space-x-4">
+                <a href="{% url 'home' %}" class="hover:underline">Home</a>
+                <a href="{% url 'quiz_results' %}" class="hover:underline">View Results</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto flex-grow p-6">
+        {% if subjects %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {% for subject in subjects %}
+                    <a href="{% url 'quiz_attempt' subject.subject %}" class="block bg-white rounded-lg shadow hover:shadow-lg transition p-6">
+                        <h2 class="text-xl font-semibold mb-2">{{ subject.subject }}</h2>
+                        <p class="text-gray-600">{{ subject.total }} questions</p>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-gray-700">No subjects available.</p>
+        {% endif %}
+    </main>
+    <footer class="bg-gray-200 text-center p-4 mt-auto">
+        &copy; 2024 Quiz App. All rights reserved.
+    </footer>
+</body>
+</html>
